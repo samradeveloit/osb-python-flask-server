@@ -698,7 +698,7 @@ securityDefinitions:
     type: "apiKey"
     name: "Authorization"
     in: "header"
-    x-bearerInfoFunc: "swagger_server.controllers.authorization_controller.check_bearerAuth"
+    x-apikeyInfoFunc: "swagger_server.controllers.authorization_controller.check_bearer_header"
 definitions:
   Catalog:
     type: "object"
