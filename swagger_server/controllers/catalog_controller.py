@@ -24,16 +24,16 @@ def catalog_get(**kwargs):  # noqa: E501
     """
     return Catalog(services=[
         Service(
-            id='open-service-broker-demo-service',
-            name='open-service-broker-demo',
-            description='Demo service broker catalog entry',
-            bindable=True,
+            id='be0e6c99-d3e5-4696-8835-917bd718fb84',
+            name='mylua-health-inc-mylua-care-recommendation-agent',
+            description='A maternal care clinical support agent that analyzes patient documents, notes, and questions to recommend structured, evidence-informed care pathways for clinicians and care teams.',
+            bindable=False,
             plan_updateable=False,
             plans=[
                 Plan(
-                    id='open-service-broker-demo-plan',
-                    name='standard',
-                    description='Standard demo plan',
+                    id='d755c200-4abc-4d43-947e-6fe6103be1f3',
+                    name='lite',
+                    description='Free tier agent',
                     free=True,
                 )
             ],
