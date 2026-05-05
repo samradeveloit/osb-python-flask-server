@@ -22,6 +22,7 @@ produces:
 - "application/json"
 security:
 - basicAuth: []
+- bearerAuth: []
 paths:
   /v2/catalog:
     get:
@@ -693,6 +694,11 @@ securityDefinitions:
   basicAuth:
     type: "basic"
     x-basicInfoFunc: "swagger_server.controllers.authorization_controller.check_basicAuth"
+  bearerAuth:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+    x-bearerInfoFunc: "swagger_server.controllers.authorization_controller.check_bearerAuth"
 definitions:
   Catalog:
     type: "object"
