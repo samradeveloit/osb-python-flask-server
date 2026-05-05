@@ -6,4 +6,7 @@ https://connexion.readthedocs.io/en/latest/security.html
 def check_basicAuth(username, password, required_scopes):
     return {'test_key': 'test_value'}
 
-
+def check_bearerAuth(token):
+    if token:
+        return {'uid': 'user'}
+    return None
