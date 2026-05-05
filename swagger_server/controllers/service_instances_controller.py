@@ -4,14 +4,14 @@ from swagger_server.models.last_operation_resource import LastOperationResource 
 from swagger_server.models.service_instance_resource import ServiceInstanceResource  # noqa: E501
 
 
-DEMO_SERVICE_ID = "open-service-broker-demo-service"
-DEMO_PLAN_ID = "open-service-broker-demo-plan"
+SERVICE_ID = "be0e6c99-d3e5-4696-8835-917bd718fb84"
+PLAN_ID = "d755c200-4abc-4d43-947e-6fe6103be1f3"
 
 
 def _instance_payload(service_id=None, plan_id=None):
     return ServiceInstanceResource(
-        service_id=service_id or DEMO_SERVICE_ID,
-        plan_id=plan_id or DEMO_PLAN_ID,
+        service_id=service_id or SERVICE_ID,
+        plan_id=plan_id or PLAN_ID,
         dashboard_url="https://example.com/dashboard/demo-instance",
         parameters={"status": "active"},
     )
@@ -47,8 +47,8 @@ def service_instance_provision(**kwargs):  # noqa: E501
         "dashboard_url": "https://example.com/dashboard/demo-instance",
         "metadata": {
             "labels": {
-                "service_id": body.get("service_id", DEMO_SERVICE_ID),
-                "plan_id": body.get("plan_id", DEMO_PLAN_ID),
+                "service_id": body.get("service_id", SERVICE_ID),
+                "plan_id": body.get("plan_id", PLAN_ID),
             },
             "attributes": {
                 "provisioned_by": "demo-broker",

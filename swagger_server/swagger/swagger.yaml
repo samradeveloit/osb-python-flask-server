@@ -65,7 +65,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.catalog_controller"
-  /v2/service_instances/**:
+  /v2/service_instances/{instance_id}:
     get:
       tags:
       - "ServiceInstances"
@@ -87,6 +87,11 @@ paths:
         in: "header"
         description: "idenity of the request from the Platform"
         required: false
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id of instance to fetch"
+        required: true
         type: "string"
       - name: "service_id"
         in: "query"
@@ -141,6 +146,11 @@ paths:
         in: "header"
         description: "idenity of the request from the Platform"
         required: false
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id of instance to provision"
+        required: true
         type: "string"
       - in: "body"
         name: "body"
@@ -218,6 +228,11 @@ paths:
         description: "asynchronous operations supported"
         required: false
         type: "boolean"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id of instance to delete"
+        required: true
+        type: "string"
       - name: "service_id"
         in: "query"
         description: "id of the service associated with the instance being deleted"
@@ -284,6 +299,11 @@ paths:
         description: "idenity of the request from the Platform"
         required: false
         type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id of instance to update"
+        required: true
+        type: "string"
       - in: "body"
         name: "body"
         description: "parameters for the requested service instance update"
@@ -325,7 +345,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.service_instances_controller"
-  /v2/service_instances/**/last_operation:
+  /v2/service_instances/{instance_id}/last_operation:
     get:
       tags:
       - "ServiceInstances"
@@ -347,6 +367,11 @@ paths:
         in: "header"
         description: "idenity of the request from the Platform"
         required: false
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id of instance to query"
+        required: true
         type: "string"
       - name: "service_id"
         in: "query"
@@ -397,7 +422,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.service_instances_controller"
-  /v2/service_instances/**/service_bindings/{binding_id}/last_operation:
+  /v2/service_instances/{instance_id}/service_bindings/{binding_id}/last_operation:
     get:
       tags:
       - "ServiceBindings"
@@ -423,6 +448,11 @@ paths:
       - name: "binding_id"
         in: "path"
         description: "binding id of binding to create"
+        required: true
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id associated with the binding"
         required: true
         type: "string"
       - name: "service_id"
@@ -474,7 +504,7 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "swagger_server.controllers.service_bindings_controller"
-  /v2/service_instances/**/service_bindings/{binding_id}:
+  /v2/service_instances/{instance_id}/service_bindings/{binding_id}:
     get:
       tags:
       - "ServiceBindings"
@@ -500,6 +530,11 @@ paths:
       - name: "binding_id"
         in: "path"
         description: "binding id of binding to create"
+        required: true
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id associated with the binding"
         required: true
         type: "string"
       - name: "service_id"
@@ -559,6 +594,11 @@ paths:
       - name: "binding_id"
         in: "path"
         description: "binding id of binding to create"
+        required: true
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id associated with the binding"
         required: true
         type: "string"
       - in: "body"
@@ -639,6 +679,11 @@ paths:
       - name: "binding_id"
         in: "path"
         description: "binding id of binding to create"
+        required: true
+        type: "string"
+      - name: "instance_id"
+        in: "path"
+        description: "instance id associated with the binding"
         required: true
         type: "string"
       - name: "service_id"
