@@ -1,4 +1,4 @@
-import connexion
+import connexion  # pyright: ignore[reportMissingImports]
 import six
 
 from swagger_server.models.catalog import Catalog  # noqa: E501
@@ -31,10 +31,10 @@ def catalog_get(**kwargs):  # noqa: E501
             plan_updateable=False,
             plans=[
                 Plan(
-                    id='d755c200-4abc-4d43-947e-6fe6103be1f3',
-                    name='lite',
-                    description='Free tier agent',
-                    free=True,
+                    id='9642aa35-837e-4589-adfc-c29cad295004',
+                    name='standard',
+                    description='Standard plan with usage-based pricing for MyLUA Care Recommendation Agent',
+                    free=False,
                 )
             ],
         )

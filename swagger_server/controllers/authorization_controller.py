@@ -22,18 +22,24 @@ def check_bearer_crn(apikey, required_scopes):
         return None
 
     parts = apikey.split(" ", 1)
-    token = parts[1] if len(parts) == 2 and parts[0].lower() == "bearer" else apikey
+    if len(parts) != 2 or parts[0].lower() != "bearer":
+        return None
+
+    token = parts[1]
     if not token:
         return None
 
-    signing_key = JWK_CLIENT.get_signing_key_from_jwt(token)
-    claims = jwt.decode(
-        token,
-        signing_key.key,
-        algorithms=["RS256"],
-        issuer=IBM_IAM_ISSUER,
-        options={"verify_aud": False},
-    )
+    try:
+        signing_key = JWK_CLIENT.get_signing_key_from_jwt(token)
+        claims = jwt.decode(
+            token,
+            signing_key.key,
+            algorithms=["RS256"],
+            issuer=IBM_IAM_ISSUER,
+            options={"verify_aud": False},
+        )
+    except Exception:
+        return None
 
     expected_crn = _normalize_crn(BROKER_CRN)
     token_identities = {
