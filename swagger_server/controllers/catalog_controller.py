@@ -34,7 +34,6 @@ def catalog_get(**kwargs):  # noqa: E501
                     id='9642aa35-837e-4589-adfc-c29cad295004',
                     name='standard',
                     description='Standard plan with usage-based pricing for MyLUA Care Recommendation Agent',
-                    tags=['ai_agent', 'health', 'maternal-care', 'clinical'],
                     free=False,
                 )
             ],
